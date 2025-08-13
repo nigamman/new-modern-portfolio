@@ -144,18 +144,11 @@
             box-shadow: var(--shadow-glow);
         }
 
-        .nav-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
         .nav-links {
             display: flex;
             gap: 30px;
             list-style: none;
             align-items: center;
-            margin: 0;
         }
 
         .nav-links a {
@@ -188,59 +181,6 @@
             font-size: 1.5rem;
             cursor: pointer;
             padding: 10px;
-            transition: var(--transition);
-        }
-
-        .mobile-menu-toggle:hover {
-            color: var(--primary);
-        }
-
-        /* Mobile Menu Overlay */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: var(--bg-primary);
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transform: translateY(-100%);
-            transition: transform 0.3s ease;
-            backdrop-filter: blur(20px);
-        }
-
-        .mobile-menu.active {
-            transform: translateY(0);
-        }
-
-        .mobile-menu .nav-links {
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        .mobile-menu .nav-links a {
-            font-size: 1.5rem;
-            padding: 15px 25px;
-        }
-
-        .mobile-menu-close {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 2rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .mobile-menu-close:hover {
-            color: var(--primary);
         }
 
         /* Hero Section */
@@ -563,56 +503,87 @@
             margin: 100px 0;
         }
 
-        .education-single {
-            display: flex;
-            align-items: center;
-            gap: 30px;
+        .education-timeline {
+            position: relative;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .education-content-single {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            width: 100%;
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            transform: translateX(-50%);
         }
 
-        .education-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        .education-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 50%;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+
+        .education-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .education-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        .education-content {
+            background: var(--bg-glass-strong);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
             border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--text-primary);
-            flex-shrink: 0;
+            padding: 30px;
+            position: relative;
+            transition: var(--transition);
         }
 
-        .education-details {
-            flex: 1;
+        .education-content:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid var(--bg-primary);
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .education-item:nth-child(odd)::before {
+            right: -10px;
+        }
+
+        .education-item:nth-child(even)::before {
+            left: -10px;
         }
 
         .education-degree {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 5px;
-        }
-
-        .education-field {
-            font-size: 1.2rem;
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .education-school {
             font-size: 1.1rem;
-            color: var(--text-secondary);
-            font-weight: 500;
+            color: var(--primary);
+            font-weight: 600;
             margin-bottom: 8px;
         }
 
@@ -620,13 +591,12 @@
             color: var(--accent);
             font-weight: 600;
             font-size: 0.9rem;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .education-description {
             color: var(--text-secondary);
             line-height: 1.6;
-            margin-bottom: 15px;
         }
 
         .education-achievements {
@@ -635,14 +605,14 @@
 
         .achievement-tag {
             display: inline-block;
-            padding: 6px 15px;
+            padding: 4px 12px;
             background: rgba(16, 185, 129, 0.1);
             color: var(--success);
             border-radius: 15px;
             font-size: 0.8rem;
             font-weight: 500;
-            margin-right: 10px;
-            margin-bottom: 8px;
+            margin-right: 8px;
+            margin-bottom: 5px;
         }
 
         /* Experience Section */
@@ -880,30 +850,12 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            nav {
-                top: 15px;
-                left: 15px;
-                right: 15px;
-                transform: none;
-                width: calc(100% - 30px);
-                padding: 15px 20px;
-            }
-
-            .nav-container {
-                width: 100%;
-            }
-
             .nav-links {
                 display: none;
             }
 
             .mobile-menu-toggle {
                 display: block;
-                margin-left: auto;
-            }
-
-            .hero {
-                padding-top: 120px;
             }
 
             .hero-buttons {
@@ -922,35 +874,27 @@
                 margin: 50px 0;
             }
 
-            .skills-categories {
-                gap: 10px;
-            }
-
-            .category-btn {
-                padding: 10px 16px;
-                font-size: 0.9rem;
-            }
-
             .skills-grid {
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
                 gap: 15px;
             }
 
-            .education-container {
-                padding: 40px 20px;
-                margin: 50px 0;
+            .education-timeline::before {
+                left: 20px;
+                transform: none;
             }
 
-            .education-single {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
+            .education-item {
+                width: 100%;
+                left: 0 !important;
+                text-align: left;
+                padding-left: 60px;
+                padding-right: 20px;
             }
 
-            .education-content-single {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
+            .education-item::before {
+                left: 10px !important;
+                right: auto !important;
             }
 
             .experience-timeline {
@@ -973,38 +917,6 @@
             section {
                 padding: 50px 20px;
             }
-
-            .social-links {
-                gap: 15px;
-                flex-wrap: wrap;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-name {
-                font-size: 2.5rem;
-            }
-
-            .hero-title {
-                font-size: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .btn {
-                padding: 12px 24px;
-                font-size: 0.9rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -1018,34 +930,719 @@
 
     <!-- Navigation -->
     <nav>
-        <div class="nav-container">
-            <ul class="nav-links">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu" id="mobileMenu">
-        <button class="mobile-menu-close" id="mobileMenuClose">
-            <i class="fas fa-times"></i>
-        </button>
-        <ul class="nav-links">
-            <li><a href="#home" class="nav-link mobile-nav-link">Home</a></li>
-            <li><a href="#about" class="nav-link mobile-nav-link">About</a></li>
-            <li><a href="#skills" class="nav-link mobile-nav-link">Skills</a></li>
-            <li><a href="#education" class="nav-link mobile-nav-link">Education</a></li>
-            <li><a href="#experience" class="nav-link mobile-nav-link">Experience</a></li>
-            <li><a href="#projects" class="nav-link mobile-nav-link">Projects</a></li>
-            <li><a href="#contact" class="nav-link mobile-nav-link">Contact</a></li>
-        </ul>
-    </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-greeting">👋 Hello, I'm</div>
+            <h1 class="hero-name">Shivansh Nigam</h1>
+            <h2 class="hero-title">Android & Software Developer</h2>
+            <p class="hero-description">
+                Passionate 3rd-year CS student crafting innovative mobile applications and solving complex problems with modern technologies. Transforming ideas into powerful digital experiences.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    Let's Collaborate
+                </a>
+                <a href="#projects" class="btn btn-secondary">
+                    <i class="fas fa-code"></i>
+                    View Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="reveal">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="rishi.jpg" alt="Shivansh Nigam">
+            </div>
+            <div class="about-text">
+                <p>
+                    Hi there! I'm Shivansh Nigam, a passionate 3rd-year Computer Science student with an insatiable curiosity for technology and innovation. My journey in software development began with a simple "Hello World" and has evolved into creating complex, user-centric applications.
+                </p>
+                <p>
+                    I specialize in <strong>Android Development</strong> using Flutter and native technologies, while also having a strong foundation in <strong>Data Structures & Algorithms</strong> with C++. My approach combines technical expertise with creative problem-solving to build applications that not only function flawlessly but also provide exceptional user experiences.
+                </p>
+                <p>
+                    When I'm not coding, you'll find me exploring the latest tech trends, contributing to open-source projects, or mentoring fellow developers. I believe in continuous learning and pushing the boundaries of what's possible with code.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modern Skills Section -->
+    <section id="skills" class="reveal">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-container">
+            <div class="skills-content">
+                <div class="skills-categories">
+                    <button class="category-btn active" onclick="showSkillCategory('frontend')">Frontend & Mobile</button>
+                    <button class="category-btn" onclick="showSkillCategory('backend')">Backend & APIs</button>
+                    <button class="category-btn" onclick="showSkillCategory('database')">Databases</button>
+                    <button class="category-btn" onclick="showSkillCategory('devops')">DevOps & Tools</button>
+                </div>
+
+                <!-- Frontend & Mobile Skills -->
+                <div class="skills-grid skill-category active" id="frontend">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fa-brands fa-flutter"></i>
+                        </div>
+                        <div class="skill-name">Flutter</div>
+                        <div class="skill-level">Advanced</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-android"></i>
+                        </div>
+                        <div class="skill-name">Android Studio</div>
+                        <div class="skill-level">Advanced</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <div class="skill-name">JavaScript</div>
+                        <div class="skill-level">Intermediate</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <div class="skill-name">React</div>
+                        <div class="skill-level">Intermediate</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <div class="skill-name">HTML5</div>
+                        <div class="skill-level">Advanced</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <div class="skill-name">CSS3</div>
+                        <div class="skill-level">Advanced</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fa-brands fa-dart-lang"></i>
+                        </div>
+                        <div class="skill-name">Dart</div>
+                        <div class="skill-level">Advanced</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="skill-name">C/C++</div>
+                        <div class="skill-level">Expert</div>
+                    </div>
+                </div>
+
+                <!-- Backend & APIs Skills -->
+                <div class="skills-grid skill-category" id="backend">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <div class="skill-name">Node.js</div>
+                        <div class="skill-level">Intermediate</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="skill-name">Express.js</div>
+                        <div class="skill-level">Intermediate</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="skill-name">FastAPI</div>
+                        <div class="skill-level">Beginner</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="skill-name">REST APIs</div>
+                        <div class="skill-level">Advanced</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="skill-name">GraphQL</div>
+                        <div class="skill-level">Beginner</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="skill-name">Firebase</div>
+                        <div class="skill-level">Advanced</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="skill-name">JWT Auth</div>
+                        <div class="skill-level">Intermediate</div>
+                    </div>
+                </div>
+
+                <!-- Database Skills -->
+                <div class="skills-grid skill-category" id="database">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="skill-name">MySQL</div>
+                        <div class="skill-level">Intermediate</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="skill-name">MongoDB</div>
+                        <div class="skill-level">Intermediate</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="skill-name">SQLite</div>
+                        <div class="skill-level">Advanced</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="skill-name">Firestore</div>
+                        <div class="skill-level">Advanced</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="skill-name">SQL Queries</div>
+                        <div class="skill-level">Advanced</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="skill-name">Database Design</div>
+                        <div class="skill-level">Intermediate</div>
+                    </div>
+                </div>
+
+                <!-- DevOps & Tools Skills -->
+                <div class="skills-grid skill-category" id="devops">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <div class="skill-name">Git</div>
+                        <div class="skill-level">Advanced</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="skill-name">GitHub</div>
+                        <div class="skill-level">Advanced</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-docker"></i>
+                        </div>
+                        <div class="skill-name">Docker</div>
+                        <div class="skill-level">Beginner</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                        <div class="skill-name">Linux/Bash</div>
+                        <div class="skill-level">Intermediate</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="skill-name">CI/CD</div>
+                        <div class="skill-level">Beginner</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-npm"></i>
+                        </div>
+                        <div class="skill-name">npm/yarn</div>
+                        <div class="skill-level">Intermediate</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-bug"></i>
+                        </div>
+                        <div class="skill-name">Testing</div>
+                        <div class="skill-level">Intermediate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="reveal">
+        <h2 class="section-title">Education</h2>
+        <div class="education-container">
+            <div class="education-single">
+                <div class="education-content-single">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-details">
+                        <div class="education-degree">Bachelor of Technology</div>
+                        <div class="education-field">Computer Science</div>
+                        <div class="education-school">Dr. APJ Abdul Kalam Technical University</div>
+                        <div class="education-year">2023 - 2027</div>
+                        <div class="education-description">
+                            Currently pursuing B.Tech in Computer Science with specialization in software development, mobile applications, and data structures & algorithms. Focused on building practical skills through hands-on projects while maintaining strong academic performance.
+                        </div>
+                        <div class="education-achievements">
+                            <!--<span class="achievement-tag">Current GPA: 8.2/10</span>-->
+                            <span class="achievement-tag">Coding Club Member</span>
+                            <span class="achievement-tag">Project Leader</span>
+                            <span class="achievement-tag">Hackathon Winner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="reveal">
+        <h2 class="section-title">Experience</h2>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <div class="experience-date">August 2025 - Present</div>
+                <h3 class="experience-title">Flutter Developer Intern</h3>
+                <div class="experience-company">Sparksphere Ventures Pvt. Ltd.</div>
+                <p class="experience-description">
+                    Working as a Flutter Developer Intern focusing on mobile application development using modern Flutter frameworks. Collaborating with cross-functional teams to deliver high-quality mobile solutions while gaining hands-on experience in agile development methodologies and industry best practices.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="reveal">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Chef Mate AI</h3>
+                    <p class="project-description">
+                        An intelligent recipe suggestion app powered by machine learning that recommends personalized meals based on available ingredients and dietary preferences.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Coming Soon
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Leo Quotes</h3>
+                    <p class="project-description">
+                        A personalized daily quotes application with push notifications, favorites system, and social sharing features. Published on Google Play Store.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">OneSignal</span>
+                        <span class="tech-tag">Dart</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.nigamman.leoquotes" class="project-link" target="_blank">
+                            <i class="fab fa-google-play"></i> Play Store
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">EarthQuake Reader</h3>
+                    <p class="project-description">
+                        Real-time earthquake monitoring application with interactive maps, push notifications, and detailed seismic data visualization for better disaster preparedness.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">REST API</span>
+                        <span class="tech-tag">Google Maps</span>
+                        <span class="tech-tag">C++</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/nigamman/earthQuakeReader" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Word Huddle Game</h3>
+                    <p class="project-description">
+                        An engaging word puzzle game with multiple difficulty levels, unlimited gameplay, and social features for competitive word enthusiasts.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Android Studio</span>
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">REST API</span>
+                        <span class="tech-tag">SQLite</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/nigamman/wordHuddleGame" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-address-card"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Virtual Card Holder</h3>
+                    <p class="project-description">
+                        A secure digital business card management system with OCR scanning, contact organization, and seamless sharing capabilities.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">SQLite</span>
+                        <span class="tech-tag">OCR</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/nigamman/virtualCardHolder" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Smart To-Do App</h3>
+                    <p class="project-description">
+                        An intelligent task management application with categorization, priority levels, and smart reminders to boost productivity.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">Local Storage</span>
+                        <span class="tech-tag">Notifications</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/nigamman/toDo-App" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="reveal">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact">
+            <div class="contact-content">
+                <p class="contact-description">
+                    Ready to bring your next project to life? I'm always excited to collaborate on innovative ideas and challenging problems. Let's create something amazing together!
+                </p>
+                <div class="hero-buttons">
+                    <a href="mailto:nigamman20@gmail.com?subject=Let's%20Collaborate!" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Send Email
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/nigamman" class="social-link" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/shivansh-nigam-0a3658286/" class="social-link" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/nigamman/" class="social-link" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.leetcode.com/u/nigamman" class="social-link" target="_blank" title="LeetCode">
+                        <i class="fas fa-code"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Shivansh Nigam. Crafted with ❤️ and lots of ☕</p>
+    </footer>
+
+    <script>
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        let mouseX = 0, mouseY = 0;
+        let followerX = 0, followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
+        });
+
+        function animateFollower() {
+            followerX += (mouseX - followerX) * 0.1;
+            followerY += (mouseY - followerY) * 0.1;
+            cursorFollower.style.left = followerX + 'px';
+            cursorFollower.style.top = followerY + 'px';
+            requestAnimationFrame(animateFollower);
+        }
+        animateFollower();
+
+        // Enhanced cursor interactions
+        const interactiveElements = document.querySelectorAll('a, button, .project-card, .skill-item');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(1.5)';
+                cursorFollower.style.transform = 'scale(1.5)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+                cursorFollower.style.transform = 'scale(1)';
+            });
+        });
+
+        // Skills Category Switching
+        function showSkillCategory(category) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Hide all skill categories
+            document.querySelectorAll('.skill-category').forEach(cat => {
+                cat.classList.remove('active');
+            });
+            
+            // Show selected category
+            document.getElementById(category).classList.add('active');
+        }
+
+        // Smooth Scrolling Navigation
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                
+                // Update active nav link
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        // Scroll-based Navigation Highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const scrollPos = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+                    if (activeLink) activeLink.classList.add('active');
+                }
+            });
+        });
+
+        // Reveal Animations
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Typing Animation for Hero
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing animations
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero-title');
+            if (heroTitle) {
+                setTimeout(() => {
+                    typeWriter(heroTitle, 'Android & Software Developer', 80);
+                }, 1000);
+            }
+        });
+
+        // Parallax Effect for Background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const bgAnimation = document.querySelector('.bg-animation');
+            if (bgAnimation) {
+                bgAnimation.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Resume Download Function
+        function downloadResume() {
+            // You can replace this with your actual resume URL
+            const resumeUrl = 'mailto:nigamman20@gmail.com?subject=Resume%20Request&body=Hi%20Shivansh,%0A%0AI%20would%20like%20to%20request%20your%20resume.%0A%0AThanks!';
+            window.open(resumeUrl, '_blank');
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinksContainer = document.querySelector('.nav-links');
+
+        mobileMenuToggle?.addEventListener('click', () => {
+            navLinksContainer.style.display = navLinksContainer.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Project Card Tilt Effect
+        const projectCards = document.querySelectorAll('.project-card, .skill-item');
+        
+        projectCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+            });
+        });
+
+        // Add floating animation to hero elements
+        const floatingElements = document.querySelectorAll('.hero-content > *');
+        floatingElements.forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.1}s`;
+            el.classList.add('fade-in-up');
+        });
+
+        // Smooth reveal for sections
+        const sections = document.querySelectorAll('section');
+        sections.forEach((section, index) => {
+            section.style.animationDelay = `${index * 0.2}s`;
+        });
+
+        // Add glow effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.documentElement.style.setProperty('--scroll-progress', scrollPercent + '%');
+        });
+    </script>
+</body>
+</html>
+        
