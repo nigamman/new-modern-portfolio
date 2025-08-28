@@ -615,6 +615,8 @@
             margin-bottom: 5px;
         }
 
+
+
         /* Experience Section */
         .experience-timeline {
             position: relative;
@@ -850,12 +852,57 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
+            /* Hide cursor effects on mobile */
+            .cursor,
+            .cursor-follower {
                 display: none;
+            }
+
+            /* Navigation fixes */
+            nav {
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                transform: none;
+                border-radius: 20px;
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-glass-strong);
+                backdrop-filter: blur(20px);
+                border: 1px solid var(--border);
+                border-radius: 20px;
+                margin-top: 10px;
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+                display: none;
+                opacity: 0;
+                transform: translateY(-10px);
+                transition: all 0.3s ease;
+            }
+
+            .nav-links.mobile-active {
+                display: flex !important;
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .nav-links a {
+                padding: 12px 20px;
+                text-align: center;
+                border-radius: 15px;
+                font-size: 16px;
             }
 
             .mobile-menu-toggle {
                 display: block;
+                margin-left: auto;
             }
 
             .hero-buttons {
@@ -880,21 +927,19 @@
             }
 
             .education-timeline::before {
-                left: 20px;
-                transform: none;
+                display: none;
             }
 
-            .education-item {
-                width: 100%;
-                left: 0 !important;
-                text-align: left;
-                padding-left: 60px;
-                padding-right: 20px;
+            .education-content-single {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
             }
 
-            .education-item::before {
-                left: 10px !important;
-                right: auto !important;
+            .education-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
             }
 
             .experience-timeline {
@@ -916,6 +961,22 @@
 
             section {
                 padding: 50px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links a {
+                font-size: 14px;
+                padding: 10px 16px;
+            }
+
+            .skills-categories {
+                gap: 10px;
+            }
+
+            .category-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -1232,7 +1293,6 @@
                             Currently pursuing B.Tech in Computer Science with specialization in software development, mobile applications, and data structures & algorithms. Focused on building practical skills through hands-on projects while maintaining strong academic performance.
                         </div>
                         <div class="education-achievements">
-                            <!--<span class="achievement-tag">Current GPA: 8.2/10</span>-->
                             <span class="achievement-tag">Coding Club Member</span>
                             <span class="achievement-tag">Project Leader</span>
                             <span class="achievement-tag">Hackathon Winner</span>
@@ -1513,6 +1573,10 @@
                 // Update active nav link
                 navLinks.forEach(l => l.classList.remove('active'));
                 link.classList.add('active');
+                
+                // Close mobile menu after clicking a link
+                const navLinksContainer = document.querySelector('.nav-links');
+                navLinksContainer.classList.remove('mobile-active');
             });
         });
 
@@ -1586,19 +1650,21 @@
             }
         });
 
-        // Resume Download Function
-        function downloadResume() {
-            // You can replace this with your actual resume URL
-            const resumeUrl = 'mailto:nigamman20@gmail.com?subject=Resume%20Request&body=Hi%20Shivansh,%0A%0AI%20would%20like%20to%20request%20your%20resume.%0A%0AThanks!';
-            window.open(resumeUrl, '_blank');
-        }
-
-        // Mobile Menu Toggle
+        // Mobile Menu Toggle - FIXED VERSION
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const navLinksContainer = document.querySelector('.nav-links');
 
-        mobileMenuToggle?.addEventListener('click', () => {
-            navLinksContainer.style.display = navLinksContainer.style.display === 'flex' ? 'none' : 'flex';
+        mobileMenuToggle?.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            navLinksContainer.classList.toggle('mobile-active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav')) {
+                navLinksContainer.classList.remove('mobile-active');
+            }
         });
 
         // Project Card Tilt Effect
@@ -1645,4 +1711,3 @@
     </script>
 </body>
 </html>
-        
