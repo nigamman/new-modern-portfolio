@@ -131,14 +131,17 @@
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
             background: var(--bg-glass);
             backdrop-filter: blur(20px);
             border: 1px solid var(--border);
             border-radius: 50px;
-            padding: 15px 30px;
+            padding: 12px 20px;
             transition: var(--transition);
-            width: auto;
-            max-width: 90%;
+            width: min(1100px, calc(100% - 40px));
         }
 
         nav:hover {
@@ -148,9 +151,10 @@
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 18px;
             list-style: none;
             align-items: center;
+            flex-wrap: nowrap;
         }
 
         .nav-links a {
@@ -160,8 +164,9 @@
             font-size: 14px;
             transition: var(--transition);
             position: relative;
-            padding: 8px 16px;
+            padding: 8px 12px;
             border-radius: 25px;
+            white-space: nowrap;
         }
 
         .nav-links a:hover {
@@ -189,6 +194,23 @@
 
         .mobile-menu-toggle:hover {
             color: var(--primary);
+        }
+
+
+        @media (max-width: 1200px) {
+            nav {
+                width: min(980px, calc(100% - 24px));
+                padding: 10px 14px;
+            }
+
+            .nav-links {
+                gap: 8px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+                padding: 7px 10px;
+            }
         }
 
         /* Hero Section */
@@ -816,7 +838,7 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             /* Hide cursor effects on mobile */
             .cursor,
             .cursor-follower {
@@ -831,7 +853,7 @@
                 transform: none;
                 border-radius: 20px;
                 padding: 12px 15px;
-                max-width: none;
+                width: auto;
             }
 
             .nav-links {
@@ -1020,7 +1042,7 @@
             <li><a href="#projects" class="nav-link">Projects</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
-        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
             <i class="fas fa-bars"></i>
         </button>
     </nav>
@@ -1560,8 +1582,9 @@
 
         mobileMenuToggle.addEventListener('click', (e) => {
             e.stopPropagation();
-            navLinksContainer.classList.toggle('mobile-active');
-            mobileMenuToggle.classList.toggle('active');
+            const isOpen = navLinksContainer.classList.toggle('mobile-active');
+            mobileMenuToggle.classList.toggle('active', isOpen);
+            mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
         });
 
         // Close mobile menu when clicking a link
@@ -1569,6 +1592,7 @@
             link.addEventListener('click', () => {
                 navLinksContainer.classList.remove('mobile-active');
                 mobileMenuToggle.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
             });
         });
 
@@ -1577,6 +1601,23 @@
             if (!e.target.closest('nav')) {
                 navLinksContainer.classList.remove('mobile-active');
                 mobileMenuToggle.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 900) {
+                navLinksContainer.classList.remove('mobile-active');
+                mobileMenuToggle.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                navLinksContainer.classList.remove('mobile-active');
+                mobileMenuToggle.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
             }
         });
 
