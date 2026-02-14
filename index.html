@@ -1074,10 +1074,10 @@
         <div class="skills-container">
             <div class="skills-content">
                 <div class="skills-categories">
-                    <button class="category-btn active" onclick="showSkillCategory('frontend')">Frontend & Mobile</button>
-                    <button class="category-btn" onclick="showSkillCategory('backend')">Backend & APIs</button>
-                    <button class="category-btn" onclick="showSkillCategory('database')">Databases</button>
-                    <button class="category-btn" onclick="showSkillCategory('devops')">DevOps & Tools</button>
+                    <button class="category-btn active" onclick="showSkillCategory('frontend', this)">Frontend & Mobile</button>
+                    <button class="category-btn" onclick="showSkillCategory('backend', this)">Backend & APIs</button>
+                    <button class="category-btn" onclick="showSkillCategory('database', this)">Databases</button>
+                    <button class="category-btn" onclick="showSkillCategory('devops', this)">DevOps & Tools</button>
                 </div>
 
                 <!-- Frontend & Mobile Skills -->
@@ -1581,11 +1581,13 @@
         });
 
         // Skills Category Switching
-        function showSkillCategory(category) {
+        function showSkillCategory(category, clickedButton) {
             document.querySelectorAll('.category-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            event.target.classList.add('active');
+            if (clickedButton) {
+                clickedButton.classList.add('active');
+            }
             
             document.querySelectorAll('.skill-category').forEach(cat => {
                 cat.classList.remove('active');
