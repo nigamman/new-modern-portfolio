@@ -268,3 +268,39 @@ window.addEventListener('scroll', () => {
     const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
     document.documentElement.style.setProperty('--scroll-progress', scrollPercent + '%');
 });
+
+// Closed Testing Modal Handling
+const testingModal = document.getElementById('testing-modal');
+const fumetPlayBtn = document.getElementById('fumet-play-btn');
+const modalCloseBtn = document.getElementById('modal-close-btn');
+
+if (testingModal && fumetPlayBtn && modalCloseBtn) {
+    // Open modal
+    fumetPlayBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        testingModal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // prevent scrolling background
+    });
+
+    // Close modal via close button
+    modalCloseBtn.addEventListener('click', () => {
+        testingModal.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
+    // Close modal by clicking overlay
+    testingModal.addEventListener('click', (e) => {
+        if (e.target === testingModal) {
+            testingModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && testingModal.classList.contains('active')) {
+            testingModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+}
