@@ -1,271 +1,186 @@
-// Custom Cursor
-const cursor = document.querySelector('.cursor');
-const cursorFollower = document.querySelector('.cursor-follower');
-let mouseX = 0, mouseY = 0;
-let followerX = 0, followerY = 0;
+// Shivansh Nigam Portfolio JavaScript Logic
 
-document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    if (cursor) {
-        cursor.style.left = mouseX + 'px';
-        cursor.style.top = mouseY + 'px';
-    }
-});
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Scroll Progress Bar
+  const scrollProgress = document.querySelector('#scrollLine span');
+  const updateScrollProgress = () => {
+    if (!scrollProgress) return;
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+    scrollProgress.style.width = `${progress}%`;
+  };
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  updateScrollProgress();
 
-function animateFollower() {
-    followerX += (mouseX - followerX) * 0.1;
-    followerY += (mouseY - followerY) * 0.1;
-    if (cursorFollower) {
-        cursorFollower.style.left = followerX + 'px';
-        cursorFollower.style.top = followerY + 'px';
-    }
-    requestAnimationFrame(animateFollower);
-}
-animateFollower();
+  // 2. Theme Toggle (Dark / Light)
+  const themeToggleBtn = document.getElementById('themeToggle');
+  const htmlElement = document.documentElement;
 
-// Enhanced cursor interactions
-const interactiveElements = document.querySelectorAll('a, button, .project-card, .skill-item, .education-highlight-card, .education-details-card');
-interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        if (cursor) cursor.style.transform = 'scale(1.5)';
-        if (cursorFollower) cursorFollower.style.transform = 'scale(1.5)';
+  // Check saved theme preference or default to dark
+  const savedTheme = localStorage.getItem('sn_theme') || 'dark';
+  htmlElement.setAttribute('data-theme', savedTheme);
+
+  themeToggleBtn?.addEventListener('click', () => {
+    const currentTheme = htmlElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    htmlElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('sn_theme', newTheme);
+  });
+
+  // 3. Toast Notifications
+  const toastContainer = document.getElementById('toastContainer');
+  function showToast(message) {
+    if (!toastContainer) return;
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    toastContainer.appendChild(toast);
+
+    // Trigger animate-in
+    setTimeout(() => toast.classList.add('show'), 10);
+
+    // Remove after 3 seconds
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => toast.remove(), 300);
+    }, 3000);
+  }
+
+  // 4. Copy Email to Clipboard (Contact Section)
+  const emailText = 'nigamman20@gmail.com';
+  const contactCopyBtn = document.getElementById('copyEmailContactBtn');
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(emailText).then(() => {
+      showToast('Email copied to clipboard! 📋');
+    }).catch(() => {
+      showToast('Failed to copy email.');
     });
-    el.addEventListener('mouseleave', () => {
-        if (cursor) cursor.style.transform = 'scale(1)';
-        if (cursorFollower) cursorFollower.style.transform = 'scale(1)';
-    });
-});
+  };
 
-// Mobile Menu Toggle with smooth animation
-const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-const navLinksContainer = document.querySelector('.nav-links');
-const navLinks = document.querySelectorAll('.nav-link');
-const mobileTabItems = document.querySelectorAll('.mobile-tab-item');
+  contactCopyBtn?.addEventListener('click', handleCopyEmail);
 
-if (mobileMenuToggle && navLinksContainer) {
-    mobileMenuToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isOpen = navLinksContainer.classList.toggle('mobile-active');
-        mobileMenuToggle.classList.toggle('active', isOpen);
-        mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
-    });
+  // 5. Project Filtering Logic
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project');
 
-    // Close mobile menu when clicking a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navLinksContainer.classList.remove('mobile-active');
-            mobileMenuToggle.classList.remove('active');
-            mobileMenuToggle.setAttribute('aria-expanded', 'false');
-        });
-    });
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('nav')) {
-            navLinksContainer.classList.remove('mobile-active');
-            mobileMenuToggle.classList.remove('active');
-            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+      const filterValue = btn.getAttribute('data-filter');
+
+      projectCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filterValue === 'all' || category === filterValue) {
+          card.style.display = 'grid';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 50);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(15px)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 300);
         }
+      });
     });
+  });
 
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 900) {
-            navLinksContainer.classList.remove('mobile-active');
-            mobileMenuToggle.classList.remove('active');
-            mobileMenuToggle.setAttribute('aria-expanded', 'false');
-        }
+  // 6. Mobile Overlay Menu Toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  menuBtn?.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuBtn.classList.toggle('active', isOpen);
+    menuBtn.setAttribute('aria-expanded', isOpen);
+  });
+
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      menuBtn?.classList.remove('active');
+      menuBtn?.setAttribute('aria-expanded', 'false');
     });
+  });
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            navLinksContainer.classList.remove('mobile-active');
-            mobileMenuToggle.classList.remove('active');
-            mobileMenuToggle.setAttribute('aria-expanded', 'false');
-        }
-    });
-}
-
-// Skills Category Switching
-function showSkillCategory(category, clickedButton) {
-    document.querySelectorAll('.category-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    if (clickedButton) {
-        clickedButton.classList.add('active');
-    }
-    
-    document.querySelectorAll('.skill-category').forEach(cat => {
-        cat.classList.remove('active');
-    });
-    
-    const targetCat = document.getElementById(category);
-    if (targetCat) {
-        targetCat.classList.add('active');
-    }
-}
-
-// Make showSkillCategory globally accessible because of inline onclick handlers
-window.showSkillCategory = showSkillCategory;
-
-// Smooth Scrolling Navigation
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        
-        if (targetSection) {
-            targetSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-        
-        navLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-    });
-});
-
-// Mobile Tab Navigation Smooth Scroll
-mobileTabItems.forEach(tab => {
-    tab.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = tab.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        
-        if (targetSection) {
-            // Offset scroll by header height (60px) on mobile
-            const offset = 60;
-            const elementPosition = targetSection.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-        
-        mobileTabItems.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-    });
-});
-
-// Scroll-based Navigation Highlighting
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    // Scroll offset accounts for sticky top header (60px) + buffer
-    const scrollPos = window.scrollY + 120;
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-
-        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-            // Desktop Highlight
-            navLinks.forEach(link => link.classList.remove('active'));
-            const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-            if (activeLink) activeLink.classList.add('active');
-
-            // Mobile Tab Highlight
-            mobileTabItems.forEach(tab => tab.classList.remove('active'));
-            // Map both Education and Experience to the "Journey" tab (#education)
-            let targetId = sectionId;
-            if (sectionId === 'experience') {
-                targetId = 'education';
-            }
-            const activeTab = document.querySelector(`.mobile-tab-item[href="#${targetId}"]`);
-            if (activeTab) activeTab.classList.add('active');
-        }
-    });
-});
-
-// Reveal Animations
-const revealElements = document.querySelectorAll('.reveal');
-
-const revealObserver = new IntersectionObserver((entries) => {
+  // 7. Scroll Reveal Animation (Intersection Observer)
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-        }
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
     });
-}, {
+  }, {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-});
+    rootMargin: '0px 0px -40px 0px'
+  });
 
-revealElements.forEach(el => {
+  revealElements.forEach((el, index) => {
+    el.style.transitionDelay = `${(index % 4) * 60}ms`;
     revealObserver.observe(el);
-});
+  });
 
-// Typing Animation for Hero
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    type();
-}
+  // 8. Custom Magnetic Cursor (Desktop)
+  const cursorDot = document.getElementById('cursorDot');
+  const cursorOutline = document.getElementById('cursorOutline');
 
-// Initialize typing animations
-window.addEventListener('load', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        setTimeout(() => {
-            typeWriter(heroTitle, 'Android & Software Developer', 80);
-        }, 1000);
-    }
-});
+  if (cursorDot && cursorOutline && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    window.addEventListener('mousemove', (e) => {
+      const posX = e.clientX;
+      const posY = e.clientY;
 
-// Parallax Effect for Background
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const bgAnimation = document.querySelector('.bg-animation');
-    if (bgAnimation) {
-        bgAnimation.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-});
+      cursorDot.style.left = `${posX}px`;
+      cursorDot.style.top = `${posY}px`;
 
-// Project Card Tilt Effect
-const tiltElements = document.querySelectorAll('.project-card, .skill-item, .education-highlight-card, .education-details-card');
-
-tiltElements.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const rotateX = (y - centerY) / 10;
-        const rotateY = (centerX - x) / 10;
-        
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`;
+      // Smooth lag for outline
+      cursorOutline.animate({
+        left: `${posX}px`,
+        top: `${posY}px`
+      }, { duration: 500, fill: 'forwards' });
     });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+
+    // Expand cursor on interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, .project-card, .email-copy-box, .toolkit-card');
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.6)';
+        cursorOutline.style.borderColor = 'var(--accent-color)';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+        cursorOutline.style.borderColor = 'rgba(99, 102, 241, 0.4)';
+      });
     });
-});
+  }
 
-// Add floating animation to hero elements
-const floatingElements = document.querySelectorAll('.hero-content > *');
-floatingElements.forEach((el, index) => {
-    el.style.animationDelay = `${index * 0.1}s`;
-    el.classList.add('fade-in-up');
-});
+  // 9. Active Nav Link Highlighting
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.desktop-nav a');
 
-// Add glow effect on scroll
-window.addEventListener('scroll', () => {
-    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-    document.documentElement.style.setProperty('--scroll-progress', scrollPercent + '%');
-});
+  const highlightNavOnScroll = () => {
+    const scrollY = window.scrollY;
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute('id');
 
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  };
+
+  window.addEventListener('scroll', highlightNavOnScroll, { passive: true });
+});
