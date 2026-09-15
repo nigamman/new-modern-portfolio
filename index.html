@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivansh Nigam | Modern Developer Portfolio</title>
-    <meta name="description" content="Shivansh Nigam - Modern Android & Software Developer Portfolio">
+    <title>Shivansh Nigam | Android & Software Developer</title>
+    <meta name="description" content="Shivansh Nigam - Modern Bento Grid Portfolio. Mobile SDE & Computer Science Senior crafting Android apps and scalable software.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="nigamman_icon_512.png">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,783 +25,511 @@
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
 
-    <!-- Animated Background -->
+    <!-- Animated Background Mesh -->
     <div class="bg-animation"></div>
 
-    <!-- Mobile Header -->
+    <!-- Mobile Top Header -->
     <header class="mobile-header">
-        <a href="#home" class="logo">Shivansh<span>.N</span></a>
+        <a href="#home" class="logo">
+            <img src="nigamman_icon_512.png" alt="Logo" class="nav-logo-icon">
+            Shivansh<span>.N</span>
+        </a>
         <a href="mailto:nigamman20@gmail.com?subject=Let's%20Collaborate!" class="mobile-contact-btn">
             <i class="fas fa-envelope"></i>
         </a>
     </header>
 
-    <!-- Navigation -->
+    <!-- Floating Navigation Pill -->
     <nav>
-        <a href="#home" class="logo">Shivansh<span>.N</span></a>
+        <a href="#home" class="logo">
+            <img src="nigamman_icon_512.png" alt="Logo" class="nav-logo-icon">
+            Shivansh<span>.N</span>
+        </a>
         <ul class="nav-links">
             <li><a href="#home" class="nav-link active">Home</a></li>
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#skills" class="nav-link">Skills</a></li>
-            <li><a href="#education" class="nav-link">Education</a></li>
-            <li><a href="#experience" class="nav-link">Experience</a></li>
             <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
             <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
-        <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-            <i class="fas fa-bars"></i>
-        </button>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-greeting">👋 Hello, I'm</div>
-            <h1 class="hero-name">Shivansh Nigam</h1>
-            <h2 class="hero-title">Android & Software Developer</h2>
-            <p class="hero-description">
-                Passionate 4th-year CS student crafting innovative mobile applications and solving complex problems with modern technologies. Transforming ideas into powerful digital experiences.
-            </p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">
-                    <i class="fas fa-rocket"></i>
-                    Let's Collaborate
-                </a>
-                <a href="#projects" class="btn btn-secondary">
-                    <i class="fas fa-code"></i>
-                    View Projects
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="reveal">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <div class="about-image">
-                <img src="rishi.jpg" alt="Shivansh Nigam">
-            </div>
-            <div class="about-text">
-                <p>
-                    Hi there! I'm Shivansh Nigam, a passionate 4th-year Computer Science student with an insatiable curiosity for technology and innovation. My journey in software development began with a simple "Hello World" and has evolved into creating complex, user-centric applications.
-                </p>
-                <p>
-                    I specialize in <strong>Android Development</strong> using Flutter and native technologies, while also having a strong foundation in <strong>Data Structures & Algorithms</strong> with C++. My approach combines technical expertise with creative problem-solving to build applications that not only function flawlessly but also provide exceptional user experiences.
-                </p>
-                <p>
-                    When I'm not coding, you'll find me exploring the latest tech trends, contributing to open-source projects, or mentoring fellow developers. I believe in continuous learning and pushing the boundaries of what's possible with code.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modern Skills Section -->
-    <section id="skills" class="reveal">
-        <h2 class="section-title">Technical Expertise</h2>
-        <div class="skills-container">
-            <div class="skills-content">
-                <div class="skills-categories">
-                    <button class="category-btn active" onclick="showSkillCategory('frontend', this)">Frontend & Mobile</button>
-                    <button class="category-btn" onclick="showSkillCategory('backend', this)">Backend & APIs</button>
-                    <button class="category-btn" onclick="showSkillCategory('database', this)">Databases</button>
-                    <button class="category-btn" onclick="showSkillCategory('devops', this)">DevOps & Tools</button>
-                </div>
-
-                <!-- Frontend & Mobile Skills -->
-                <div class="skills-grid skill-category active" id="frontend">
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fa-brands fa-flutter"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">Flutter</span>
-                                <span class="skill-level-badge">Advanced</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
+    <!-- HERO BENTO SECTION -->
+    <div id="home" class="section-wrapper">
+        <div class="bento-grid">
+            <!-- Main Hero Bento Box (Span 8) -->
+            <div class="bento-card col-span-8 bento-hero-main">
+                <div>
+                    <div class="status-badge">
+                        <span class="status-pulse"></span>
+                        Mobile SDE @ GOAT Developers • 4th Year CS
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fab fa-android"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">Android Studio</span>
-                                <span class="skill-level-badge">Advanced</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fab fa-js"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">JavaScript</span>
-                                <span class="skill-level-badge">Intermediate</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 70%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fab fa-react"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">React</span>
-                                <span class="skill-level-badge">Intermediate</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 68%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fab fa-html5"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">HTML5</span>
-                                <span class="skill-level-badge">Advanced</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fab fa-css3-alt"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">CSS3</span>
-                                <span class="skill-level-badge">Advanced</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 88%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fa-brands fa-dart-lang"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">Dart</span>
-                                <span class="skill-level-badge">Advanced</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">C/C++</span>
-                                <span class="skill-level-badge">Expert</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 95%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Backend & APIs Skills -->
-                <div class="skills-grid skill-category" id="backend">
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fab fa-node-js"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">Node.js</span>
-                                <span class="skill-level-badge">Intermediate</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 72%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fas fa-server"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">Express.js</span>
-                                <span class="skill-level-badge">Intermediate</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 70%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fas fa-bolt"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">FastAPI</span>
-                                <span class="skill-level-badge">Beginner</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 45%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fas fa-exchange-alt"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">REST APIs</span>
-                                <span class="skill-level-badge">Advanced</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 88%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fas fa-project-diagram"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">GraphQL</span>
-                                <span class="skill-level-badge">Beginner</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 40%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fas fa-fire"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">Firebase</span>
-                                <span class="skill-level-badge">Advanced</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">JWT Auth</span>
-                                <span class="skill-level-badge">Intermediate</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 75%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Database Skills -->
-                <div class="skills-grid skill-category" id="database">
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">MySQL</span>
-                                <span class="skill-level-badge">Intermediate</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 72%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fas fa-leaf"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">MongoDB</span>
-                                <span class="skill-level-badge">Intermediate</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 70%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">SQLite</span>
-                                <span class="skill-level-badge">Advanced</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fas fa-fire"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">Firestore</span>
-                                <span class="skill-level-badge">Advanced</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fas fa-search"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">SQL Queries</span>
-                                <span class="skill-level-badge">Advanced</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fas fa-chart-bar"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">Database Design</span>
-                                <span class="skill-level-badge">Intermediate</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 75%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DevOps & Tools Skills -->
-                <div class="skills-grid skill-category" id="devops">
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fab fa-git-alt"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">Git</span>
-                                <span class="skill-level-badge">Advanced</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fab fa-github"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">GitHub</span>
-                                <span class="skill-level-badge">Advanced</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fab fa-docker"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">Docker</span>
-                                <span class="skill-level-badge">Beginner</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 45%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fas fa-terminal"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">Linux/Bash</span>
-                                <span class="skill-level-badge">Intermediate</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 75%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fas fa-rocket"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">CI/CD</span>
-                                <span class="skill-level-badge">Beginner</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 50%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fab fa-npm"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">npm/yarn</span>
-                                <span class="skill-level-badge">Intermediate</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon-wrap">
-                            <div class="skill-icon">
-                                <i class="fas fa-bug"></i>
-                            </div>
-                        </div>
-                        <div class="skill-info">
-                            <div class="skill-header">
-                                <span class="skill-name">Testing</span>
-                                <span class="skill-level-badge">Intermediate</span>
-                            </div>
-                            <div class="skill-progress-bar">
-                                <div class="skill-progress-fill" style="width: 75%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="reveal">
-        <h2 class="section-title">Education</h2>
-        <div class="education-grid">
-            <div class="education-highlight-card">
-                <div class="grad-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <h3>Academic Journey</h3>
-                <p>Developing strong fundamentals in Computer Science and software engineering patterns.</p>
-            </div>
-            <div class="education-details-card">
-                <div class="education-header">
-                    <div class="education-info">
-                        <h4>Bachelor of Technology</h4>
-                        <div class="education-field">Computer Science & Engineering</div>
-                        <div class="school-name">Dr. APJ Abdul Kalam Technical University</div>
-                    </div>
-                    <div class="education-meta">
-                        <span class="year-badge">2023 - 2027</span>
-                    </div>
-                </div>
-                <div class="education-body">
-                    Currently pursuing a B.Tech degree with a specialization in software development, mobile systems architecture, and advanced data structures & algorithms. Focused on building production-ready projects and writing clean, scalable code while maintaining academic excellence.
-                </div>
-                <div class="education-footer">
-                    <span class="achievement-tag">Coding Club Member</span>
-                    <span class="achievement-tag">Project Leader</span>
-                    <span class="achievement-tag">Hackathon Winner</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="reveal">
-        <h2 class="section-title">Experience</h2>
-        <div class="experience-timeline">
-            <div class="experience-item">
-                <div class="experience-date">June 2026 - Present</div>
-                <h3 class="experience-title">Mobile SDE</h3>
-                <div class="experience-company">GOAT Developers Pvt. Ltd.</div>
-                <p class="experience-description">
-                    Leading the development of highly responsive and scalable mobile applications using Flutter and native technologies. Designing clean architecture systems, improving state management, optimizing app load times and frame rendering speeds, and collaborating closely with design and product teams to build exceptional user journeys.
-                </p>
-            </div>
-            <div class="experience-item">
-                <div class="experience-date">August 2025 - November 2025</div>
-                <h3 class="experience-title">Flutter Developer Intern</h3>
-                <div class="experience-company">Sparksphere Ventures Pvt. Ltd.</div>
-                <p class="experience-description">
-                    Worked as a Flutter Developer Intern focusing on mobile application development using modern Flutter frameworks. Collaborated with cross-functional teams to deliver high-quality mobile solutions while gaining hands-on experience in agile development methodologies and industry best practices.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="reveal">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card" data-theme="gold">
-                <div class="project-app-icon-wrap">
-                    <div class="project-app-icon">
-                        <img src="fumet-icon-512.png" alt="Fumet Icon">
-                    </div>
-                </div>
-                <div class="project-card-content">
-                    <h3 class="project-title">Fumet</h3>
-                    <p class="project-description">
-                        An all-in-one personal finance application designed to help you track daily income/expenses, manage budgets, monitor saving goals, and chat with an AI Financial Assistant.
+                    <h1 class="hero-bento-title">Building Scalable Mobile Apps & Powerful Digital Experiences.</h1>
+                    <p class="hero-bento-subtitle">
+                        Passionate Computer Science student specializing in Android & Flutter development, algorithmic problem-solving with C++, and creating production-grade applications.
                     </p>
-                    <div class="project-tech-minimal">Flutter • Dart • Firebase • AI</div>
-                    <div class="project-links-chevron">
-                        <a href="https://nigamman.github.io/fumet.in/" class="project-chevron-link" target="_blank">
-                            Play Store <i class="fas fa-chevron-right"></i>
-                        </a>
-                        <a href="https://github.com/nigamman/smart-fintech-app" class="project-chevron-link" target="_blank">
-                            GitHub <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
+                </div>
+                <div class="bento-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Let's Collaborate
+                    </a>
+                    <a href="https://play.google.com/store/apps/dev?id=7773127578430372080" target="_blank" class="btn btn-playstore">
+                        <i class="fab fa-google-play"></i>
+                        Google Play Profile
+                    </a>
+                    <a href="#projects" class="btn btn-secondary">
+                        <i class="fas fa-code"></i>
+                        View Apps
+                    </a>
                 </div>
             </div>
 
-            <div class="project-card" data-theme="amber">
-                <div class="project-app-icon-wrap">
-                    <div class="project-app-icon">
-                        <img src="leoQuotes.png" alt="Leo Quotes Icon">
+            <!-- Google Play Developer Highlight Bento Box (Span 4) -->
+            <a href="https://play.google.com/store/apps/dev?id=7773127578430372080" target="_blank" class="bento-card col-span-4 bento-playstore-card">
+                <div>
+                    <i class="fab fa-google-play playstore-icon-large"></i>
+                    <h3 class="playstore-card-title">Google Play Developer Console</h3>
+                    <p class="playstore-card-desc">
+                        Official Google Play Store Developer Profile. Check out published apps, updates, and live production releases.
+                    </p>
+                </div>
+                <div class="playstore-card-link">
+                    Explore Play Store Apps <i class="fas fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- Core Tech Focus Bento Box (Span 12) -->
+            <div class="bento-card col-span-12">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                    <div>
+                        <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary);">Core Technical Toolkit</h4>
+                        <p style="font-size: 0.88rem; color: var(--text-secondary);">Frameworks, languages & platforms I build with daily</p>
+                    </div>
+                    <div class="tech-focus-list">
+                        <div class="tech-badge"><i class="fa-brands fa-flutter"></i> Flutter</div>
+                        <div class="tech-badge"><i class="fab fa-android"></i> Android Studio</div>
+                        <div class="tech-badge"><i class="fa-brands fa-dart-lang"></i> Dart</div>
+                        <div class="tech-badge"><i class="fas fa-code"></i> C++ / DSA</div>
+                        <div class="tech-badge"><i class="fas fa-fire"></i> Firebase</div>
+                        <div class="tech-badge"><i class="fas fa-database"></i> SQLite & SQL</div>
+                        <div class="tech-badge"><i class="fas fa-exchange-alt"></i> REST APIs</div>
                     </div>
                 </div>
-                <div class="project-card-content">
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURED PROJECTS BENTO SECTION -->
+    <div id="projects" class="section-wrapper">
+        <div class="section-title-wrap">
+            <span class="section-tag">Portfolio</span>
+            <h2 class="section-title">Featured Mobile & Web Apps</h2>
+        </div>
+
+        <div class="bento-grid">
+            <!-- Project 1: Fumet (Span 7) -->
+            <div class="bento-card col-span-7 bento-project-card">
+                <div>
+                    <div class="project-bento-header">
+                        <div class="project-icon-box">
+                            <img src="fumet-icon-512.png" alt="Fumet App">
+                        </div>
+                        <span class="project-category-tag">Fintech & AI</span>
+                    </div>
+                    <h3 class="project-title">Fumet — AI Finance Assistant</h3>
+                    <p class="project-desc">
+                        All-in-one personal finance app designed for daily income/expense tracking, budget management, savings goals, and real-time conversation with an AI Financial Assistant.
+                    </p>
+                    <div class="project-tech-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">Dart</span>
+                        <span class="project-tag">Firebase</span>
+                        <span class="project-tag">AI Integration</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://nigamman.github.io/fumet.in/" class="project-link-btn" target="_blank">
+                        <i class="fas fa-globe"></i> Website
+                    </a>
+                    <a href="https://play.google.com/store/apps/dev?id=7773127578430372080" class="project-link-btn playstore" target="_blank">
+                        <i class="fab fa-google-play"></i> Play Store
+                    </a>
+                    <a href="https://github.com/nigamman/smart-fintech-app" class="project-link-btn" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 2: Atithi Bhoj (NEW - Span 5) -->
+            <div class="bento-card col-span-5 bento-project-card">
+                <div>
+                    <div class="project-bento-header">
+                        <div class="project-icon-box">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <span class="project-category-tag">Food Tech</span>
+                    </div>
+                    <h3 class="project-title">Atithi Bhoj</h3>
+                    <p class="project-desc">
+                        Kanpur's first tiffin service application! Simplifies daily meal ordering, subscription plans, menu updates, and delivery tracking.
+                    </p>
+                    <div class="project-tech-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">Firebase</span>
+                        <span class="project-tag">Tiffin Delivery</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://play.google.com/store/apps/details?id=com.nigamman.atithibhoj" class="project-link-btn playstore" target="_blank">
+                        <i class="fab fa-google-play"></i> Play Store
+                    </a>
+                    <a href="https://nigamman.github.io/atithi-bhoj-website/" class="project-link-btn" target="_blank">
+                        <i class="fas fa-globe"></i> Website
+                    </a>
+                    <a href="https://github.com/nigamman/tiffin_service_app" class="project-link-btn" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 3: Leo Quotes (Span 4) -->
+            <div class="bento-card col-span-4 bento-project-card">
+                <div>
+                    <div class="project-bento-header">
+                        <div class="project-icon-box">
+                            <img src="leoQuotes.png" alt="Leo Quotes">
+                        </div>
+                        <span class="project-category-tag">Lifestyle</span>
+                    </div>
                     <h3 class="project-title">Leo Quotes</h3>
-                    <p class="project-description">
-                        A personalized daily quotes application with push notifications, favorites system, and social sharing features. Published on Google Play Store.
+                    <p class="project-desc">
+                        Daily motivational quotes app with customizable push notifications, favorites, and social quote card generation.
                     </p>
-                    <div class="project-tech-minimal">Flutter • Firebase • OneSignal • Dart</div>
-                    <div class="project-links-chevron">
-                        <a href="https://play.google.com/store/apps/details?id=com.nigamman.leoquotes" class="project-chevron-link" target="_blank">
-                            Play Store <i class="fas fa-chevron-right"></i>
-                        </a>
-                        <a href="https://github.com/nigamman/app_leo_quotes" class="project-chevron-link" target="_blank">
-                            GitHub <i class="fas fa-chevron-right"></i>
-                        </a>
+                    <div class="project-tech-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">Firebase</span>
+                        <span class="project-tag">OneSignal</span>
                     </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/nigamman/leoQuotes" class="project-link-btn" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://play.google.com/store/apps/dev?id=7773127578430372080" class="project-link-btn playstore" target="_blank">
+                        <i class="fab fa-google-play"></i> Play Store
+                    </a>
                 </div>
             </div>
 
-            <div class="project-card" data-theme="champagne">
-                <div class="project-app-icon-wrap">
-                    <div class="project-app-icon">
-                        <img src="quunatumSync.png" alt="QuantumSync Icon">
+            <!-- Project 4: QuantumSync (Span 4) -->
+            <div class="bento-card col-span-4 bento-project-card">
+                <div>
+                    <div class="project-bento-header">
+                        <div class="project-icon-box">
+                            <img src="quunatumSync.png" alt="QuantumSync">
+                        </div>
+                        <span class="project-category-tag">Productivity</span>
+                    </div>
+                    <h3 class="project-title">QuantumSync</h3>
+                    <p class="project-desc">
+                        Cross-device file transfer & synchronization tool with encrypted local network peer-to-peer data streaming.
+                    </p>
+                    <div class="project-tech-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">C++</span>
+                        <span class="project-tag">P2P Network</span>
                     </div>
                 </div>
-                <div class="project-card-content">
-                    <h3 class="project-title">QuantumSync: Ultimate Puzzle</h3>
-                    <p class="project-description">
-                        Quantum Sync isn't just another puzzle game - it's a brutal test of human intelligence that will push your brain to its absolute limits.
-                    </p>
-                    <div class="project-tech-minimal">Android Studio • C++ • REST API • Node.js</div>
-                    <div class="project-links-chevron">
-                        <a href="https://play.google.com/store/apps/details?id=com.nigamman.quantumsync" class="project-chevron-link" target="_blank">
-                            Play Store <i class="fas fa-chevron-right"></i>
-                        </a>
-                        <a href="https://github.com/nigamman/quantum_sync" class="project-chevron-link" target="_blank">
-                            GitHub <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
+                <div class="project-links">
+                    <a href="https://github.com/nigamman/quantumSync" class="project-link-btn" target="_blank">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a>
                 </div>
             </div>
 
-            <div class="project-card" data-theme="red">
-                <div class="project-app-icon-wrap">
-                    <div class="project-app-icon">
-                        <i class="fas fa-map-marked-alt"></i>
+            <!-- Project 5: EarthQuake Reader (Span 4) -->
+            <div class="bento-card col-span-4 bento-project-card">
+                <div>
+                    <div class="project-bento-header">
+                        <div class="project-icon-box">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <span class="project-category-tag">Utility</span>
                     </div>
-                </div>
-                <div class="project-card-content">
                     <h3 class="project-title">EarthQuake Reader</h3>
-                    <p class="project-description">
-                        Real-time earthquake monitoring application with interactive maps, push notifications, and detailed seismic data visualization for better disaster preparedness.
+                    <p class="project-desc">
+                        Real-time seismic activity monitoring app with interactive mapping, magnitude alerts, and live USGS data integration.
                     </p>
-                    <div class="project-tech-minimal">Flutter • REST API • Maps • C++</div>
-                    <div class="project-links-chevron">
-                        <a href="https://github.com/nigamman/earthQuakeReader" class="project-chevron-link" target="_blank">
-                            GitHub <i class="fas fa-chevron-right"></i>
-                        </a>
+                    <div class="project-tech-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">REST API</span>
+                        <span class="project-tag">Maps</span>
                     </div>
                 </div>
-            </div>
-            
-            <div class="project-card" data-theme="silver">
-                <div class="project-app-icon-wrap">
-                    <div class="project-app-icon">
-                        <i class="fas fa-address-card"></i>
-                    </div>
-                </div>
-                <div class="project-card-content">
-                    <h3 class="project-title">Virtual Card Holder</h3>
-                    <p class="project-description">
-                        A secure digital business card management system with OCR scanning, contact organization, and seamless sharing capabilities.
-                    </p>
-                    <div class="project-tech-minimal">Flutter • Dart • SQLite • OCR</div>
-                    <div class="project-links-chevron">
-                        <a href="https://github.com/nigamman/virtualCardHolder" class="project-chevron-link" target="_blank">
-                            GitHub <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
+                <div class="project-links">
+                    <a href="https://github.com/nigamman/earthQuakeReader" class="project-link-btn" target="_blank">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a>
                 </div>
             </div>
 
-            <div class="project-card" data-theme="green">
-                <div class="project-app-icon-wrap">
-                    <div class="project-app-icon">
-                        <i class="fas fa-tasks"></i>
+            <!-- Project 6: Virtual Card Holder (Span 6) -->
+            <div class="bento-card col-span-6 bento-project-card">
+                <div>
+                    <div class="project-bento-header">
+                        <div class="project-icon-box">
+                            <i class="fas fa-address-card"></i>
+                        </div>
+                        <span class="project-category-tag">OCR & SQLite</span>
+                    </div>
+                    <h3 class="project-title">Virtual Card Holder</h3>
+                    <p class="project-desc">
+                        Digital business card wallet with built-in camera OCR scanner, card organization, and instant contact sharing.
+                    </p>
+                    <div class="project-tech-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">SQLite</span>
+                        <span class="project-tag">OCR Camera</span>
                     </div>
                 </div>
-                <div class="project-card-content">
-                    <h3 class="project-title">Smart To-Do App</h3>
-                    <p class="project-description">
-                        An intelligent task management application with categorization, priority levels, and smart reminders to boost productivity.
-                    </p>
-                    <div class="project-tech-minimal">Flutter • Dart • Storage • Alerts</div>
-                    <div class="project-links-chevron">
-                        <a href="https://github.com/nigamman/toDo-App" class="project-chevron-link" target="_blank">
-                            GitHub <i class="fas fa-chevron-right"></i>
-                        </a>
+                <div class="project-links">
+                    <a href="https://github.com/nigamman/virtualCardHolder" class="project-link-btn" target="_blank">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 7: Smart To-Do App (Span 6) -->
+            <div class="bento-card col-span-6 bento-project-card">
+                <div>
+                    <div class="project-bento-header">
+                        <div class="project-icon-box">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <span class="project-category-tag">Task Manager</span>
                     </div>
+                    <h3 class="project-title">Smart To-Do App</h3>
+                    <p class="project-desc">
+                        Intelligent task manager featuring priority queues, category tags, local notifications, and clean minimal UI.
+                    </p>
+                    <div class="project-tech-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">Dart</span>
+                        <span class="project-tag">Local Storage</span>
+                    </div>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/nigamman/toDo-App" class="project-link-btn" target="_blank">
+                        <i class="fab fa-github"></i> GitHub Repository
+                    </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="reveal">
-        <h2 class="section-title">Let's Connect</h2>
-        <div class="contact">
-            <div class="contact-content">
-                <p class="contact-description">
-                    Ready to bring your next project to life? I'm always excited to collaborate on innovative ideas and challenging problems. Let's create something amazing together!
+    <!-- EXPERIENCE & EDUCATION BENTO SECTION -->
+    <div id="experience" class="section-wrapper">
+        <div class="section-title-wrap">
+            <span class="section-tag">Journey</span>
+            <h2 class="section-title">Experience & Education</h2>
+        </div>
+
+        <div class="bento-grid">
+            <!-- Experience Timeline (Span 7) -->
+            <div class="bento-card col-span-7">
+                <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--text-primary); margin-bottom: 20px;">
+                    <i class="fas fa-briefcase" style="color: var(--primary); margin-right: 8px;"></i> Professional Work
+                </h3>
+                <div class="experience-list">
+                    <div class="exp-item">
+                        <div class="exp-date">June 2026 - Present</div>
+                        <div class="exp-role">Mobile SDE</div>
+                        <a href="https://goatdevelopers.com/" target="_blank" class="exp-company-link">
+                            GOAT Developers Pvt. Ltd. <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i>
+                        </a>
+                        <p class="exp-desc">
+                            Leading mobile application development using Flutter and native Android stacks. Designing scalable mobile architecture, optimizing app render speeds, state management, and building high-performance features.
+                        </p>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-date">August 2025 - November 2025</div>
+                        <div class="exp-role">Flutter Developer Intern</div>
+                        <a href="https://sparksphereventure.com/" target="_blank" class="exp-company-link">
+                            Sparksphere Ventures Pvt. Ltd. <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i>
+                        </a>
+                        <p class="exp-desc">
+                            Developed cross-platform mobile app components in Flutter. Implemented responsive UIs, integrated RESTful APIs, and participated in sprint planning and code reviews.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education Card (Span 5) -->
+            <div class="bento-card col-span-5 edu-highlight">
+                <div>
+                    <i class="fas fa-graduation-cap edu-icon"></i>
+                    <div class="edu-degree">Bachelor of Technology</div>
+                    <div class="edu-field">Computer Science & Engineering</div>
+                    <div class="edu-school">Dr. APJ Abdul Kalam Technical University</div>
+                    <div class="edu-badge">2023 - 2027 • 4th Year CS Senior</div>
+                </div>
+                <div style="margin-top: 20px; font-size: 0.9rem; color: var(--text-secondary); text-align: center;">
+                    Focusing on Data Structures & Algorithms (C++), Mobile Operating Systems, Software Engineering, and Database Architecture.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TECHNICAL EXPERTISE BENTO SECTION -->
+    <div id="skills" class="section-wrapper">
+        <div class="section-title-wrap">
+            <span class="section-tag">Skills</span>
+            <h2 class="section-title">Technical Expertise</h2>
+        </div>
+
+        <div class="bento-card col-span-12">
+            <div class="skills-nav-tabs">
+                <button class="tab-btn active" onclick="switchSkillTab('mobile', this)">Mobile & Frontend</button>
+                <button class="tab-btn" onclick="switchSkillTab('backend', this)">Backend & APIs</button>
+                <button class="tab-btn" onclick="switchSkillTab('database', this)">Databases</button>
+                <button class="tab-btn" onclick="switchSkillTab('tools', this)">Languages & Tools</button>
+            </div>
+
+            <!-- Mobile & Frontend -->
+            <div class="skills-grid-bento skill-tab-content active" id="tab-mobile">
+                <div class="skill-bento-item">
+                    <i class="fa-brands fa-flutter skill-bento-icon"></i>
+                    <span class="skill-bento-name">Flutter</span>
+                </div>
+                <div class="skill-bento-item">
+                    <i class="fab fa-android skill-bento-icon"></i>
+                    <span class="skill-bento-name">Android Studio</span>
+                </div>
+                <div class="skill-bento-item">
+                    <i class="fa-brands fa-dart-lang skill-bento-icon"></i>
+                    <span class="skill-bento-name">Dart</span>
+                </div>
+                <div class="skill-bento-item">
+                    <i class="fab fa-js skill-bento-icon"></i>
+                    <span class="skill-bento-name">JavaScript</span>
+                </div>
+                <div class="skill-bento-item">
+                    <i class="fab fa-react skill-bento-icon"></i>
+                    <span class="skill-bento-name">React</span>
+                </div>
+                <div class="skill-bento-item">
+                    <i class="fab fa-html5 skill-bento-icon"></i>
+                    <span class="skill-bento-name">HTML5 / CSS3</span>
+                </div>
+            </div>
+
+            <!-- Backend & APIs -->
+            <div class="skills-grid-bento skill-tab-content" id="tab-backend" style="display: none;">
+                <div class="skill-bento-item">
+                    <i class="fab fa-node-js skill-bento-icon"></i>
+                    <span class="skill-bento-name">Node.js</span>
+                </div>
+                <div class="skill-bento-item">
+                    <i class="fas fa-server skill-bento-icon"></i>
+                    <span class="skill-bento-name">Express.js</span>
+                </div>
+                <div class="skill-bento-item">
+                    <i class="fas fa-exchange-alt skill-bento-icon"></i>
+                    <span class="skill-bento-name">RESTful APIs</span>
+                </div>
+                <div class="skill-bento-item">
+                    <i class="fas fa-fire skill-bento-icon"></i>
+                    <span class="skill-bento-name">Firebase Auth & DB</span>
+                </div>
+            </div>
+
+            <!-- Databases -->
+            <div class="skills-grid-bento skill-tab-content" id="tab-database" style="display: none;">
+                <div class="skill-bento-item">
+                    <i class="fas fa-database skill-bento-icon"></i>
+                    <span class="skill-bento-name">SQLite</span>
+                </div>
+                <div class="skill-bento-item">
+                    <i class="fas fa-database skill-bento-icon"></i>
+                    <span class="skill-bento-name">MySQL</span>
+                </div>
+                <div class="skill-bento-item">
+                    <i class="fas fa-leaf skill-bento-icon"></i>
+                    <span class="skill-bento-name">MongoDB</span>
+                </div>
+                <div class="skill-bento-item">
+                    <i class="fas fa-fire skill-bento-icon"></i>
+                    <span class="skill-bento-name">Cloud Firestore</span>
+                </div>
+            </div>
+
+            <!-- Languages & Tools -->
+            <div class="skills-grid-bento skill-tab-content" id="tab-tools" style="display: none;">
+                <div class="skill-bento-item">
+                    <i class="fas fa-code skill-bento-icon"></i>
+                    <span class="skill-bento-name">C / C++ (DSA)</span>
+                </div>
+                <div class="skill-bento-item">
+                    <i class="fab fa-git-alt skill-bento-icon"></i>
+                    <span class="skill-bento-name">Git & GitHub</span>
+                </div>
+                <div class="skill-bento-item">
+                    <i class="fab fa-linux skill-bento-icon"></i>
+                    <span class="skill-bento-name">Linux / Bash</span>
+                </div>
+                <div class="skill-bento-item">
+                    <i class="fas fa-terminal skill-bento-icon"></i>
+                    <span class="skill-bento-name">VS Code</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT BENTO SECTION -->
+    <div id="contact" class="section-wrapper">
+        <div class="bento-card col-span-12 bento-contact-card">
+            <div class="contact-banner-box">
+                <img src="nigamman-header-2.png" alt="Shivansh Nigam Header Banner">
+            </div>
+            <div class="contact-body">
+                <h3 style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin-bottom: 10px;">
+                    Let's Build Something Great Together!
+                </h3>
+                <p class="contact-text">
+                    Ready to bring your mobile application or software project to life? I'm always open to new opportunities, collaborations, and technical challenges.
                 </p>
-                <div class="hero-buttons">
-                    <a href="mailto:nigamman20@gmail.com?subject=Let's%20Collaborate!" class="btn btn-primary">
+                <div>
+                    <a href="mailto:nigamman20@gmail.com?subject=Let's%20Collaborate!" class="btn btn-primary" style="padding: 14px 32px; font-size: 1rem;">
                         <i class="fas fa-envelope"></i>
                         Send Email
                     </a>
                 </div>
-                <div class="social-links">
-                    <a href="https://github.com/nigamman" class="social-link" target="_blank" title="GitHub">
+                <div class="social-links-row">
+                    <a href="https://play.google.com/store/apps/dev?id=7773127578430372080" class="social-circle-btn" target="_blank" title="Google Play Console">
+                        <i class="fab fa-google-play"></i>
+                    </a>
+                    <a href="https://github.com/nigamman" class="social-circle-btn" target="_blank" title="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/shivansh-nigam-0a3658286/" class="social-link" target="_blank" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/shivansh-nigam-0a3658286/" class="social-circle-btn" target="_blank" title="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://www.instagram.com/nigamman/" class="social-link" target="_blank" title="Instagram">
+                    <a href="https://www.instagram.com/nigamman/" class="social-circle-btn" target="_blank" title="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://www.leetcode.com/u/nigamman" class="social-link" target="_blank" title="LeetCode">
+                    <a href="https://www.leetcode.com/u/nigamman" class="social-circle-btn" target="_blank" title="LeetCode">
                         <i class="fas fa-code"></i>
                     </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Shivansh Nigam. Crafted with ❤️ and lots of ☕</p>
+        <p>&copy; 2026 Shivansh Nigam. Crafted with ❤️ and lots of ☕</p>
     </footer>
 
     <!-- Mobile Bottom Navigation -->
@@ -807,26 +538,33 @@
             <i class="fas fa-home"></i>
             <span>Home</span>
         </a>
-        <a href="#about" class="mobile-tab-item">
-            <i class="fas fa-user"></i>
-            <span>About</span>
+        <a href="#projects" class="mobile-tab-item">
+            <i class="fas fa-briefcase"></i>
+            <span>Apps</span>
+        </a>
+        <a href="#experience" class="mobile-tab-item">
+            <i class="fas fa-history"></i>
+            <span>Journey</span>
         </a>
         <a href="#skills" class="mobile-tab-item">
             <i class="fas fa-code"></i>
             <span>Skills</span>
         </a>
-        <a href="#education" class="mobile-tab-item">
-            <i class="fas fa-graduation-cap"></i>
-            <span>Journey</span>
-        </a>
-        <a href="#projects" class="mobile-tab-item">
-            <i class="fas fa-briefcase"></i>
-            <span>Projects</span>
+        <a href="#contact" class="mobile-tab-item">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
         </a>
     </div>
 
-
-    <!-- External JavaScript -->
+    <!-- Tab switching script -->
+    <script>
+        function switchSkillTab(tabId, btn) {
+            document.querySelectorAll('.skill-tab-content').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById('tab-' + tabId).style.display = 'grid';
+            btn.classList.add('active');
+        }
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>
