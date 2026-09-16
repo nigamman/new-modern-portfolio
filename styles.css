@@ -1154,7 +1154,7 @@ body {
 .social-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 28px;
   margin-top: 50px;
 }
 
@@ -1162,34 +1162,26 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 999px;
   color: #a1a1aa !important;
   text-decoration: none;
-  font-size: 12px;
-  transition: all var(--transition-fast);
+  font-size: 13px;
+  transition: color var(--transition-fast);
 }
 
 .social-icon {
   width: 15px;
   height: 15px;
   flex-shrink: 0;
-  transition: transform var(--transition-fast);
+  transition: transform var(--transition-fast), color var(--transition-fast);
 }
 
 .social-link:hover {
   color: #ffffff !important;
-  border-color: rgba(168, 85, 247, 0.4);
-  background: rgba(168, 85, 247, 0.12);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(168, 85, 247, 0.2);
 }
 
 .social-link:hover .social-icon {
-  transform: scale(1.1);
   color: #a855f7;
+  transform: translateY(-1px);
 }
 
 /* Footer */
