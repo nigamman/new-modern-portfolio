@@ -1076,8 +1076,12 @@ body {
   background: #0b0c0e !important;
   color: #f0f2f5 !important;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 140px;
+  padding-top: 100px;
   padding-bottom: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
   overflow: hidden;
 }
@@ -1101,6 +1105,11 @@ body {
   position: relative;
   z-index: 2;
   max-width: 900px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 0;
 }
 
 .contact-section .section-label {
@@ -1196,7 +1205,8 @@ body {
 /* Footer */
 .footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-  padding: 28px 0;
+  padding: 20px 0;
+  margin-top: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
