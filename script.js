@@ -183,4 +183,38 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   window.addEventListener('scroll', highlightNavOnScroll, { passive: true });
+
+  // 10. Atithi Bhoj Closed Testing Modal Trigger
+  const atithiPlayStoreBtn = document.getElementById('atithiPlayStoreBtn');
+  const closedTestingModal = document.getElementById('closedTestingModal');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+
+  if (atithiPlayStoreBtn && closedTestingModal) {
+    atithiPlayStoreBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closedTestingModal.classList.add('open');
+      closedTestingModal.setAttribute('aria-hidden', 'false');
+    });
+
+    const closeModal = () => {
+      closedTestingModal.classList.remove('open');
+      closedTestingModal.setAttribute('aria-hidden', 'true');
+    };
+
+    closeModalBtn?.addEventListener('click', closeModal);
+
+    // Close on backdrop click
+    closedTestingModal.addEventListener('click', (e) => {
+      if (e.target === closedTestingModal) {
+        closeModal();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && closedTestingModal.classList.contains('open')) {
+        closeModal();
+      }
+    });
+  }
 });
